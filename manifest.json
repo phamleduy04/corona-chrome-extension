@@ -1,0 +1,16 @@
+{
+    "manifest_version": 2,
+
+    "name": "corona stats",
+    "description": "Corona status in your browser",
+    "version": "1.0",
+    "author": "Duy Pham",
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_title": "My first chrome ext" 
+    },
+    "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
+    "permissions": [
+        "activeTab"
+    ]
+}
