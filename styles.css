@@ -3,10 +3,16 @@ body {
 }
 h1 {
     font-size: 15px;
-    text-align: center;
+    text-align: left;
 }
-h2 {
-    font-size: 15px;
+p {
+    font-size: 25px;
     text-align: center;
-    display: inline-block;
+    font-family: Cadena;
+    margin-bottom: -2px;
+}
+
+@font-face {
+    font-family: Cadena;
+    src: url(cadena.otf);
 }
