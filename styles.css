@@ -1,15 +1,18 @@
 body {
     margin: 50px;
+    width: 280px;
 }
+
 h1 {
     font-size: 15px;
     text-align: left;
 }
+
 p {
     font-size: 25px;
     text-align: center;
-    font-family: Cadena;
     margin-bottom: -2px;
+    font-family: Cadena;
 }
 
 @font-face {
