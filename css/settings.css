@@ -3,6 +3,14 @@ p {
     font-size: 20px;
 }
 
+#firstSelect {
+    height: 30px;
+}
+
+#secondSelect {
+    height: 30px;
+}
+
 @font-face {
     font-family: Cadena;
     src: url(../assets/cadena.otf);

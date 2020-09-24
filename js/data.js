@@ -1,10 +1,7 @@
 $(document).ready(async function() {
     // check userStorage
-    let userSettings = localStorage.getItem('country');
-    if (!userSettings || userSettings === null || userSettings == "undefined") {
-        await localStorage.setItem('country', 'USA');
-        userSettings = 'USA';
-    }
+    const firstRow = await checkStorage('firstRow');
+    const secondRow = await checkStorage('secondRow');
     async function setBody(url, title) {
         const data = await $.get(url);
         const { cases, todayCases, deaths, todayDeaths, recovered, todayRecovered, critical } = data;
@@ -13,9 +10,9 @@ $(document).ready(async function() {
         bodyEl('h1', `Deaths: ${dep(deaths)}(+${dep(todayDeaths)})`);
         bodyEl('h1', `Recovered: ${dep(recovered)}(+${dep(todayRecovered)})`);
         bodyEl('h1', `Critical: ${dep(critical)}`);
-    }
-    await setBody('https://disease.sh/v3/covid-19/all', "Corona cases in the world");
-    await setBody(`https://disease.sh/v3/covid-19/countries/${userSettings}?strict=true`, `Corona cases at ${userSettings}`);
+    } 
+    await setBody(firstRow == 'World' ? `https://disease.sh/v3/covid-19/all` : `https://disease.sh/v3/covid-19/countries/${firstRow}?strict=true`, firstRow == 'World' ? "Corona cases in the world" : `Corona cases at ${firstRow}`);
+    await setBody(secondRow == 'World' ? `https://disease.sh/v3/covid-19/all` : `https://disease.sh/v3/covid-19/countries/${secondRow}?strict=true`, secondRow == 'World' ? "Corona cases in the world" : `Corona cases at ${secondRow}`);
 })
 
 function bodyEl(type, text) {
@@ -30,3 +27,12 @@ function dep(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }
 
+async function checkStorage(id) {
+    let userSettings = localStorage.getItem(id);
+    console.log(userSettings);
+    if (!userSettings || userSettings === null || userSettings == "undefined") {
+        await localStorage.setItem(id, id == 'firstRow' ? 'World' : 'USA');
+        return 'USA';
+    }
+    return userSettings;
+}
