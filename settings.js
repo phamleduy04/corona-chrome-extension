@@ -1,10 +1,16 @@
 $(document).ready(async function() {
     const countriesArray = await $.get('https://disease.sh/v3/covid-19/countries');
     selectBody(countriesArray.map(el => el.country));
-
-    document.getElementById('save').addEventListener("click", () => {
+    
+    document.getElementById("save").addEventListener("click", () => {
         const userChoose = $('#select').val();
-        alert(`You choose: ${userChoose}`);
+        localStorage.setItem('country', userChoose);
+        alert("Done!");
+        window.close();
+    })
+
+    document.getElementById("cancel").addEventListener("click", () => {
+        window.close();
     })
 })
 
