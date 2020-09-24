@@ -15,7 +15,14 @@ p {
     font-family: Cadena;
 }
 
+.setting {
+    position: absolute;
+    right: 5px;
+    bottom: 2px;
+    width: 15px;
+    height: 15px;
+}
 @font-face {
     font-family: Cadena;
-    src: url(cadena.otf);
+    src: url(assets/cadena.otf);
 }
