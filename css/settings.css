@@ -1,0 +1,9 @@
+p {
+    font-family: Cadena;
+    font-size: 20px;
+}
+
+@font-face {
+    font-family: Cadena;
+    src: url(../assets/cadena.otf);
+}
